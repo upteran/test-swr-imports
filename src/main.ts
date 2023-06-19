@@ -78,12 +78,13 @@ interface Product {
 }
 
 const req = new Promise((res, _rej) => {
-	setTimeout(() => { res('hi product') }, 3000)
+	setTimeout(() => { res('hi product') }, 2000)
 })
 
 async function fetchProductDetails(_productId: string): Promise<Product> {
+	let product;
 	// @ts-ignore
-	req.then(res => console.log(res));
+	await req.then(res => product = res);
 	return product
 }
 
